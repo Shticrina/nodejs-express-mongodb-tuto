@@ -1,0 +1,67 @@
+/* ==========================================================================
+   General styles
+   ========================================================================== 
+*/
+
+body {
+	font-family: 'Montserrat Alternates', sans-serif;
+	font-size: 18px;
+	background-color: #eee;
+	color: #720c0c;
+}
+
+a {
+	text-decoration: none;
+	color: #fff;
+}
+
+a:hover {
+	color: #eee;
+	text-decoration: none;
+}
+
+.text-14 {
+  	font-size: 14px;
+}
+
+.text-darkred {
+	color: #720c0c;
+}
+
+/*Style Toastr messages*/
+.toast-top-center,
+.toast-top-full-width { 
+	top: 90px;
+} 
+
+/* Style Header */
+#myheader {
+	background-color: #1b1b1b;
+}
+
+#myheader h2 {
+	font-size: 25px;
+	letter-spacing: 5px;
+}
+
+/* Style Footer */
+#myfooter {
+	font-size: 12px;
+	background-color: #053543;
+}
+
+/***************** Responsive ******************/
+
+/*extra Small devices*/
+@media (max-width: 480px) {
+  	#myheader h2 {
+		padding-left: 3rem !important;
+		padding-right: 3rem !important;
+  	}
+
+  	#myheader h2 {
+		font-size: 26px;
+		padding-left: 40px;
+		padding-right: 40px;
+  	}
+}
