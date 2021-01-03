@@ -50,6 +50,11 @@ a:hover {
 	background-color: #053543;
 }
 
+#todolist {
+    min-height: 100vh;
+    background-color: floralwhite;
+}
+
 /***************** Responsive ******************/
 
 /*extra Small devices*/

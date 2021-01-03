@@ -24,7 +24,7 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
 	// res.render('home.ejs');
 	TodoTask.find({}, (err, tasks) => {
-		console.log(tasks);
+		// console.log(tasks);
 		res.render("home.ejs", { todoTasks: tasks });
 	});
 });
