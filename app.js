@@ -30,7 +30,7 @@ app.use(mongoSanitize());
 mongoose.set("useFindAndModify", false);
 mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
 	console.log("Connected to db yoo!");
-	app.listen(3000, () => console.log("Server Up and running on 3000"));
+	// app.listen(3000, () => console.log("Server Up and running on 3000"));
 });
 
 // Ejs
@@ -62,3 +62,5 @@ app.use((req,res,next)=> {
 app.use('/', require('./routes/pages'));
 app.use('/users', require('./routes/auth'));
 // app.use('/admin', require('./routes/admin'));
+
+app.listen(3000, () => console.log("Server Up and running on 3000"));
