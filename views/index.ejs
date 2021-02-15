@@ -1,6 +1,79 @@
 <div class="container d-flex flex-column my-5" id="todolist">
     <div class="col-8 mx-auto py-4 text-center mb-3">
-        <h2>To-Do List</h2>
-        <h4 class="text-danger">hey, this is the home page!</h4>
+        <h2>To Do List</h2>
+
+        <div class="col-8 mx-auto text-center">
+            <form action="/" method="POST" class="form-group">
+                <div class="input-group-prepend">
+                    <input type="text" name="content" class="form-control" placeholder="Add task yoo">
+                    
+                    <button type="submit" class="btn btn-info">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </form>
+
+            <ul class="list-group py-2">
+                <% todoTasks.forEach(details => { %>
+                    <li class="list-group-item d-flex justify-content-between py-1 bg-info mb-1">
+                        <div class=""><%= details.content %></div>
+
+                        <div class="actions">
+                        	<a href="javascript:void(0);" id="edit<%= details._id %>" class="edit btn btn-link" data-content="<%= details.content %>" onclick="openEditModal('<%= details._id %>')">
+                            	<span class="fas fa-edit text-light"></span>
+                            </a>
+
+                            <!-- <a href="/edit/<%= details._id %>" class="text-light mx-2" data-toggle="modal" data-target="#modalEditTask"> -->
+                                <!-- <span class="fas fa-edit"></span> -->
+                            <!-- </a> -->
+
+                            <a href="/remove/<%= details._id %>" class="text-danger mx-2">
+                                <span class="fas fa-times"></span>
+                            </a>
+                        </div>
+                    </li>
+                <% }) %>
+            </ul>
+        </div>
     </div>
 </div>
+
+<!-- Modal window for edit task -->
+<div id="modalEditTask" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit task</h3>
+                <button type="button" class="close font-weight-light" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+
+            <div class="modal-body">
+                <form action="/update" method="POST">
+					<div class="form-group">
+						<label for="exampleInputEmail1">Task name</label>
+						<input type="hidden" name="id" value="">
+						<input type="text" class="form-control" name="title" value="">
+						<small class="form-text text-muted">Min 2 characters, please.</small>
+					</div>
+
+					<button type="submit" class="btn btn-info btn-block mt-4">Save changes</button>
+				</form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  	function openEditModal(id) {
+		var editBtn = $("#edit"+id);
+		var contentValue = editBtn.data('content');
+		// console.log(contentValue);
+
+		$('#modalEditTask').modal('show');
+        $('#modalEditTask input[name="title"]').val(contentValue);
+        $('#modalEditTask input[name="id"]').val(id);
+
+        // fetch
+  	}
+ 		
+</script>

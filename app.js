@@ -62,27 +62,3 @@ app.use((req,res,next)=> {
 app.use('/', require('./routes/pages'));
 app.use('/users', require('./routes/auth'));
 // app.use('/admin', require('./routes/admin'));
-
-// Express routes
-/*app.get('/', (req, res) => {
-	// res.render('home.ejs');
-	TodoTask.find({}, (err, tasks) => {
-		res.render("home.ejs", { todoTasks: tasks });
-	});
-});*/
-
-// add new task
-/*app.post('/',async (req, res) => {
-	const todoTask = new TodoTask({
-		content: req.body.content
-	});
-
-	console.log(todoTask);
-
-	try {
-		await todoTask.save();
-		res.redirect("/");
-	} catch (err) {
-		res.redirect("/");
-	}
-});*/
