@@ -63,4 +63,4 @@ app.use('/', require('./routes/pages'));
 app.use('/users', require('./routes/auth'));
 // app.use('/admin', require('./routes/admin'));
 
-app.listen(process.env.port || 3000, () => console.log("Server Up and running on 3000"));
+app.listen(process.env.PORT || 3000, () => console.log("Server Up and running on 3000"));
