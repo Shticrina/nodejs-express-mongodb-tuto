@@ -11,9 +11,9 @@ const bodyParser = require('body-parser');
 const mongoSanitize = require('express-mongo-sanitize');
 
 //models
-const TodoTask = require("./models/TodoTask");
+const TodoTask = require("/models/TodoTask");
 
-require("./config/passport")(passport);
+require("/config/passport")(passport);
 dotenv.config();
 
 app.use("/static", express.static("public"));
@@ -59,8 +59,8 @@ app.use((req,res,next)=> {
 
 // Routes
 // app.use('/', require('./routes/index'));
-app.use('/', require('./routes/pages'));
-app.use('/users', require('./routes/auth'));
+app.use('/', require('/routes/pages'));
+app.use('/users', require('/routes/auth'));
 // app.use('/admin', require('./routes/admin'));
 
 app.listen(process.env.PORT || 3000);
