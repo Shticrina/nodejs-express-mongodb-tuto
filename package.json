@@ -2,10 +2,10 @@
   "name": "nodejstutorial",
   "version": "1.0.0",
   "description": "todo list",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "Cristina Dinca",
   "license": "ISC",
