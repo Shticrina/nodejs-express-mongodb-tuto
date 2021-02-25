@@ -9,16 +9,30 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const mongoSanitize = require('express-mongo-sanitize');
+const path = require("path");
 
-//models
-const TodoTask = require("./models/TodoTask");
+const public = path.join(__dirname, '/public');
+const root = path.join(__dirname, '/');
 
-require("./config/passport")(passport);
+const TodoTask = require(root + "models/TodoTask");
+console.log(root);
+console.log(root + "models/TodoTask");
+console.log("----------------------");
+
+
+// var Router = require('./modules/router/router');
+// var router = new Router(path.join(__dirname,'routes'));
+
+//  heroku config:set NODE_MODULES_CACHE=false --app name
+
+
+require(root + "config/passport")(passport);
 dotenv.config();
 
-app.use("/static", express.static("public"));
+app.use(express.static(public));
+// app.use("/static", express.static("public"));
+
 // app.use(express.json()); // to support JSON-encoded bodies
-// app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(mongoSanitize());
@@ -59,8 +73,8 @@ app.use((req,res,next)=> {
 
 // Routes
 // app.use('/', require('./routes/index'));
-app.use('/', require('./routes/pages'));
-app.use('/users', require('./routes/auth'));
+app.use('/', require(root + 'routes/pages'));
+app.use('/users', require(root + 'routes/auth'));
 // app.use('/admin', require('./routes/admin'));
 
 app.listen(process.env.PORT || 3000);
